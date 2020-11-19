@@ -1,0 +1,34 @@
+.main {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 3.5rem !important;
+}
+
+.parent {
+  height: 100vh;
+  width: 100vw;
+  background-color: #FAFAFA;
+}
+
+.content {
+  margin: 50px !important;
+  width: 60%;
+}
+
+.buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  width: 90% !important;
+}
+
+#col1 {
+  height: 50% !important;
+}
+

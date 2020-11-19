@@ -1,12 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/app';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
+import './index.css'
+import App from './components/app'
+import * as serviceWorker from './serviceWorker'
+import 'semantic-ui-css/semantic.min.css'
+import axios from 'axios'
+
+axios.defaults.withCredentials = true
+axios.defaults.xsrfCookieName = 'arxivapp_csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Router>
+        <Route path='/' component={App} />
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
