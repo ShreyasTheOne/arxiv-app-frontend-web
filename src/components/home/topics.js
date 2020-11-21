@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { apiSearchUrl, apiBookmarkUrl, apiDownloadUrl } from '../../urls'
 import { Button, Header, Input, Form, TextArea } from 'semantic-ui-react'
 import axios from 'axios'
-// import css from './home.css'
 import { Router, Switch } from 'react-router-dom'
 
 const search_fields = [
@@ -37,7 +36,6 @@ class Topics extends Component {
         }).catch(e => {
             alert(e)
         })
-        // console.log(this.state)
     }  
 
     bookmark (action) {

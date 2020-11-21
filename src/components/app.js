@@ -3,12 +3,11 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Login from './login/login'
 import OnLogin from './login/onLogin'
 import Home from './home/home'
-import { apiAuthVerifyUrl } from '../urls'
 
 class App extends Component {
 
     render() {
-
+        console.log("apps", this.props)
         const { match } = this.props
 
         return (
@@ -25,12 +24,7 @@ class App extends Component {
                         component={OnLogin}
                     />
                     <Route
-                        exact
-                        path={[
-                            `${match.path}forum/`,
-                            `${match.path}topics/`,
-                            `${match.path}profile/`,
-                        ]}
+                        path={`${match.path}`}
                         component={Home}
                     />
                 </Switch>

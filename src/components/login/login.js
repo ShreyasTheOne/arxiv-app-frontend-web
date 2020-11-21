@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import { Container, Button, Header, Icon, Segment, Grid, Divider, Placeholder} from 'semantic-ui-react'
-import { apiAuthLogoutUrl, apiAuthVerifyUrl, googleRedirect }  from '../../urls'
+import { Container, Button, Header, Icon, Segment, Grid, Loader, Placeholder} from 'semantic-ui-react'
+import { apiAuthVerifyUrl, googleRedirect }  from '../../urls'
 import axios from 'axios'
 import { getCookie } from '../../utils'
-import css from './css/login.css'
+import './css/login.css'
 import { Redirect } from 'react-router-dom'
 
 let headers = {
@@ -42,40 +42,16 @@ class Login extends Component {
     window.location = authorization_endpoint
   }
 
-  logout () {
-    axios({
-      url: apiAuthLogoutUrl(),
-      method: 'post',
-      headers: headers,
-      withCredentials: true,
-    }).then( res => {
-      console.log(res)
-    })
-  }
-
-
   render(){
     const { login_status } = this.state
+
     if (login_status === null) {
       return (
-        <Container>
-          <Header>
-            Loading....
-          </Header>
-        </Container>
+        <Loader active/>
       )
     } else if (login_status) {
       return (
-        <Button
-          color='red'
-          size='large'
-          fluid
-          onClick={this.logout}
-        >
-          <Icon name='google'/>
-          Logout
-        </Button>
-        // <Redirect to='/topics'/>
+        <Redirect to='/topics'/>
       )
     } else {
       return (

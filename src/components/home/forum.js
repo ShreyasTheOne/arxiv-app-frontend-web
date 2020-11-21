@@ -67,9 +67,20 @@ class Forum extends Component {
     }
 
     render() {
-        const { match } = this.props
+        
         return (
-            <div >
+            <div>
+                
+            </div>
+
+        )
+    }
+}
+
+export default Forum;
+
+
+{/* <div >
                 <Input 
                     placeholder='Blog title...'
                     onChange = { (event, data) => {
@@ -108,10 +119,4 @@ class Forum extends Component {
                 >
                     Downvote
                 </Button>
-            </div>
-
-        )
-    }
-}
-
-export default Forum;
+            </div> */}
