@@ -11,7 +11,7 @@ export const appTopicsUrl = () => {
 // Backend 
 
 export const baseApiUrl = () => {
-    return 'http://localhost:8000/api/'
+    return 'http://localhost:54321/api/'
 }
 
 export const apiAuthVerifyUrl = () => {

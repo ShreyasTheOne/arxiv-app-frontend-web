@@ -1,0 +1,110 @@
+.search {
+    font-size: 3rem !important;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    padding: 3rem 5rem !important;
+    height: fit-content;
+}
+
+.left {
+    padding-right: 20px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+#advSrch {
+    cursor: pointer;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.input {
+    margin: 10px 0px;
+}
+
+.search-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30%;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+    margin-bottom: auto;
+    margin-right: 5%; 
+    height: inherit;
+}
+
+.tall {
+    height: 80vh !important;
+}
+
+.content {
+    margin-top: 20px !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.summary {
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+    padding: 0px 34px !important;
+}
+
+.paper-actions {
+    margin-bottom: 20px !important;
+    padding: 0px  34px !important;
+}
+
+.results-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    margin-bottom: 10px;
+}
+
+.show-results-for {
+    margin: 0px !important;
+}
+
+@media only screen and (max-width: 1250px) {
+    .results-header {
+        margin-top: 10px;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem !important;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .search-results {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        width: 100% !important;
+    }
+}

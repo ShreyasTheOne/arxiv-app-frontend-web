@@ -15,7 +15,7 @@ class App extends Component {
                 <Switch>
                     <Route
                         exact
-                        path={`${match.path}`}
+                        path={`${match.path}login/`}
                         component={Login}
                     />
                     <Route

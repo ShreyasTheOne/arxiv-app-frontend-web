@@ -16,7 +16,7 @@ import {
 import axios from 'axios'
 import './css/home.css'
 import { Link, Redirect } from 'react-router-dom'
-import Topics from './topics'
+import Papers from './papers'
 import Forum from './forum'
 import Profile from './profile'
 
@@ -25,11 +25,10 @@ class Home extends Component {
 
     constructor(props) {
         super(props)
-        const { pathname } = this.props.location
-        const activeItem = pathname.split('/')[1]
+        
         this.state = {
             user: null,
-            activeItem
+            activeItem: 'papers'
         }
     }
 
@@ -38,10 +37,12 @@ class Home extends Component {
             url: apiAuthVerifyUrl(),
             method: 'get',
         }).then(res => {
-            const login_status = res.data.login_status
+            const {login_status, user} = res.data
             if (login_status) {
                 this.setState({
-                    user: res.data.user
+                    user: user,
+                    bookmarks: user.bookmarks,
+                    downloads: user.downloads,
                 })
             } else {
                 this.setState({
@@ -77,8 +78,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log("this.props")
-        console.log(this.props)
 
         const { activeItem, user } = this.state
 
@@ -90,7 +89,7 @@ class Home extends Component {
             )
         } else if (user.id === -1) {
             return (
-                <Redirect to='/' />
+                <Redirect to='/login' />
             )
         }
 
@@ -98,16 +97,16 @@ class Home extends Component {
             <div className='parent'>
 
                 <div className='nav'>
-                    <div className='menu-app-header'> {/* nav.css */}
+                    <div className='menu-app-header'>
                         <Link to='/' className='a'>
                             <div className='ui huge header menu-app-header'>ArxivWeb</div>
-                        </Link> {/* nav.css */}
+                        </Link> 
                     </div>
                     <div id='nav-menu'>
                         <Menu color='red' pointing secondary compact>
                             <Menu.Item
-                                name='topics'
-                                active={activeItem === 'topics'}
+                                name='papers'
+                                active={activeItem === 'papers'}
                                 onClick={this.handleItemClick}
                             />
                             <Menu.Item
@@ -157,10 +156,58 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <div className='nav-mobile'>
+                    <Link to='/' className='menu-app-header'>
+                    <div className='ui large header menu-app-header'>ArxivWeb</div>
+                    </Link> 
+                    <Popup
+                        hideOnScroll
+                        position='bottom right'
+                        on="click"
+                        style={{ padding: "0px" }}
+                        trigger={
+                            <Image
+                                style={{ cursor: 'pointer' }}
+                                src={user.profile_picture}
+                                avatar
+                                size='mini'
+                            />
+                        }
+                    >
+                        <Button
+                            color='red'
+                            size='large'
+                            fluid
+                            onClick={this.logout}
+                        >
+                            <Icon name='log out' />
+                            Logout
+                        </Button>
+                    </Popup>
+                </div>
+                <div id='nav-menu-mobile'>
+                    <Menu color='red' compact secondary>
+                        <Menu.Item
+                            name='papers'
+                            active={activeItem === 'papers'}
+                            onClick={this.handleItemClick}
+                        />
+                        <Menu.Item
+                            name='forum'
+                            active={activeItem === 'forum'}
+                            onClick={this.handleItemClick}
+                        />
+                        <Menu.Item
+                            name='profile'
+                            active={activeItem === 'profile'}
+                            onClick={this.handleItemClick}
+                        />
+                    </Menu>
+                </div>
 
-                {activeItem == 'topics' && <Topics/>}
-                {activeItem == 'forum' && <Forum/>}
-                {activeItem == 'profile' && <Profile/>}
+                {activeItem == 'papers' && <Papers user={user}/>}
+                {activeItem == 'forum' && <Forum user={user}/>}
+                {activeItem == 'profile' && <Profile user={user}/>}
 
             </div>
         )
