@@ -32,7 +32,7 @@ class Home extends Component {
         }
     }
 
-    componentDidMount() {
+    get_user_data (activeItem) {
         axios({
             url: apiAuthVerifyUrl(),
             method: 'get',
@@ -41,29 +41,32 @@ class Home extends Component {
             if (login_status) {
                 this.setState({
                     user: user,
-                    bookmarks: user.bookmarks,
-                    downloads: user.downloads,
+                    activeItem
                 })
             } else {
                 this.setState({
                     user: {
-                        'id': -1
+                        'id': -1,
+                        activeItem
                     }
                 })
             }
         }).catch(e => {
             this.setState({
                 user: {
-                    'id': -1
+                    'id': -1,
+                    activeItem
                 }
             })
         })
     }
 
+    componentDidMount() {
+        this.get_user_data(this.state.activeItem)
+    }
+
     handleItemClick = (e, { name }) => {
-        this.setState({
-            activeItem: name
-        })
+        this.get_user_data(name)
     }
 
     logout() {
@@ -125,7 +128,7 @@ class Home extends Component {
                         <div>
                             <Header size='large' className='user-info-header'>
                                 Hey, {user.username}!
-                        </Header>
+                            </Header>
                         </div>
                         <div>
                             <Popup
@@ -158,7 +161,7 @@ class Home extends Component {
                 </div>
                 <div className='nav-mobile'>
                     <Link to='/' className='menu-app-header'>
-                    <div className='ui large header menu-app-header'>ArxivWeb</div>
+                        <div className='ui large header menu-app-header'>ArxivWeb</div>
                     </Link> 
                     <Popup
                         hideOnScroll

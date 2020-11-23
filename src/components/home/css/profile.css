@@ -1,0 +1,20 @@
+.gaajar {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    padding: 3rem 5rem !important;
+    height: fit-content;
+}
+
+.gobhi {
+    padding-right: 20px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.adrak {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}

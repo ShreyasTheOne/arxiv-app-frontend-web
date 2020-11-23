@@ -23,11 +23,7 @@ class OnLogin extends Component {
       data: data,
     }).then( res => {
       console.log(res)
-      if (res.status == 200) {
-        window.location = appTopicsUrl()
-      } else {
-        window.location = appHomeUrl()
-      }
+      window.location = appHomeUrl()
     }).catch( e => {
       window.location = appHomeUrl()
     })

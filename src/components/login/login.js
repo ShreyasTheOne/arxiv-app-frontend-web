@@ -59,20 +59,20 @@ class Login extends Component {
           <Container>
             <div className={'main'}>
               <Header color='red' textAlign='center'>
-                Arxiv-Web
+                ArxivWeb
               </Header>
 
               <div className={'paragraph'}>
                 <Container text fluid>
                   <Header as='h1'>
-                    LOLISM
+                    You are about to enter into...
                   </Header>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                    ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                    ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                    quis enim.
+                    ...a more <i>sundar</i> version of <u onClick={()=>{window.location='arxiv.org'}}>arxiv.org</u>, 
+                    which will allow you to search and bookmark your favorite research papers retrieved from the
+                    arXiv API. <br/><br/>
+                    This app was made as a submission for the semester project in CSN-261: Object Oriented Analysis
+                    and Design, and we have no intention of running it on production and take credit for Arxiv's work.
                   </p>
                 </Container>
               </div>
@@ -92,15 +92,6 @@ class Login extends Component {
                           Sign in with Google
                         </Button>
 
-                        <Button
-                          secondary
-                          fluid
-                          size='large'
-                          onClick={this.redirect}
-                        >
-                          <Icon name='google play'/>
-                          Download the Android App
-                        </Button>
                       </div>
                     </Grid.Column>
                     <Grid.Column>

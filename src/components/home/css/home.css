@@ -16,7 +16,7 @@
     top: 0;
     z-index: 5;
     display: grid;
-    grid-template-columns: 2fr 11fr 2fr;
+    grid-template-columns: 2fr 9fr 2fr;
 }
 
 .nav-mobile {
@@ -47,14 +47,13 @@
 }
 
 .user-info {
-    margin-right: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly !important;
     align-items: center;
     grid-column-start: 3;
     grid-column-end: 3;
-    
+    width: inherit;
 }
 
 .user-info-header {
