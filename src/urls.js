@@ -1,7 +1,7 @@
 // Frontend
 
 export const appHomeUrl = () => {
-    return 'http://localhost:3000/'
+    return 'http://localhost:54321/'
 }
 
 export const appTopicsUrl = () => {
@@ -57,6 +57,6 @@ export const googleRedirect = (state) => {
     `response_type=code&` +
     `client_id=763177834879-975pu14eb6cg8f4q39nnjt99ovkeiqag.apps.googleusercontent.com&` +
     `scope=openid%20profile%20email&` +
-    `redirect_uri=http%3A//localhost:3000/redirect&` +
+    `redirect_uri=http%3A//localhost:54321/redirect&` +
     `state=${state}`)
 }
